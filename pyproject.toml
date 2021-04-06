@@ -10,6 +10,10 @@ click = "^7.1.2"
 requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.3"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.11.1"
+pytest-mock = "^3.5.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -17,3 +21,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 hypermodern-python = "hypermodern_python.console:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["hypermodern_python"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
