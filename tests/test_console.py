@@ -1,5 +1,3 @@
-import textwrap
-
 import click.testing
 import pytest
 import requests
@@ -59,4 +57,3 @@ def test_main_uses_specified_language(runner, mock_wikipedia_random_page):
 def test_main_succeeds_in_production_env(runner):
     result = runner.invoke(console.main)
     assert result.exit_code == 0
-    
