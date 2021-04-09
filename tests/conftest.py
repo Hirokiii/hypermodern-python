@@ -1,3 +1,4 @@
+"""Configuration for pytest."""
 from unittest.mock import Mock
 
 from _pytest.config import Config
@@ -7,6 +8,7 @@ from pytest_mock import MockerFixture
 
 @pytest.fixture
 def mock_requests_get(mocker: MockerFixture) -> Mock:
+    """Mock of requests.get."""
     mock = mocker.patch("requests.get")
     mock.return_value.__enter__.return_value.json.return_value = {
         "title": "Lorem Ipsum",
@@ -16,4 +18,5 @@ def mock_requests_get(mocker: MockerFixture) -> Mock:
 
 
 def pytest_configure(config: Config) -> None:
+    """Configuration."""
     config.addinivalue_line("markers", "e2e: mark as end-to-end test.")
